@@ -1,0 +1,58 @@
+name: Submit a dataset
+description: Send a dataset before the conference. A data package is built from it, you review it, and it is published with a DOI.
+title: "Dataset: "
+labels: ["dataset"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for sending a dataset. This issue is public, and so is any file you attach. Submit by Friday 11 December 2026. The conditions and what you get are on the [workshop website](https://rawtoweb.github.io/website/dcc-2027/pre-work/04-your-data.html).
+  - type: input
+    id: name
+    attributes:
+      label: Name of the dataset
+      description: A short name, for example "Household water quality survey, Blantyre 2024".
+    validations:
+      required: true
+  - type: dropdown
+    id: source
+    attributes:
+      label: Whose data is it?
+      options:
+        - My own data (or my group's), which I may publish under CC BY 4.0
+        - A published dataset by others under CC BY 4.0
+        - A published dataset by others under CC0
+    validations:
+      required: true
+  - type: textarea
+    id: origin
+    attributes:
+      label: Where the data comes from
+      description: Who collected it, when and where, and for what. For a published dataset, the DOI or link and the names of the authors.
+    validations:
+      required: true
+  - type: textarea
+    id: structure
+    attributes:
+      label: What the rows and the columns mean
+      description: One line on what one row is, and a few words on the columns or the files.
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: The data
+      description: Drag a CSV, XLSX or ZIP file (up to 25 MB) into this box, or paste the link to the published dataset.
+    validations:
+      required: true
+  - type: checkboxes
+    id: conditions
+    attributes:
+      label: Conditions
+      options:
+        - label: The data holds no personal data (no names, addresses, GPS points of households or other details that identify a person).
+          required: true
+        - label: The data may be published under CC BY 4.0 or CC0, by me as the owner or because its published licence allows it.
+          required: true
+        - label: I understand that this issue and the attached file are public from now on.
+          required: true
